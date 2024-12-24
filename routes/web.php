@@ -8,9 +8,59 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Route Parent
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/out-cashier', function () {
+        return view('pages.report.out-cashier');
+    })->name('out-cashier');
+
+    Route::get('/sales', function () {
+        return view('pages.sale.sale');
+    })->name('sale');
+
+    Route::get('/absence', function () {
+        return view('pages.absence.absence');
+    })->name('absence');
+
+    Route::get('/report', function () {
+        return view('pages.report.report');
+    })->name('report');
+
+    // Route Child
+    Route::get('/payment', function () {
+        return view('payment');
+    })->name('pages.payment');
+
+    Route::get('/success-absence', function () {
+        return view('pages.absence.sucsess-absence');
+    })->name('sucsess-absence');
+
+    Route::get('/sucsess', function () {
+        return view('sucsess');
+    })->name('sucsess-payment');
+
+    Route::get('/summary', function () {
+        return view('pages.report.summary');
+    })->name('summary');
+
+    Route::get('/commission', function () {
+        return view('pages.report.commission');
+    })->name('commission');
+
+    Route::get('/report-cashier', function () {
+        return view('pages.report.report-cashier');
+    })->name('report-cashier');
+
+    Route::get('/recap', function () {
+        return view('pages.report.recap');
+    })->name('recap');
+});
+
+
 
 Route::get('/pin', function () {
     return view('pin');
