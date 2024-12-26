@@ -65,7 +65,7 @@
 
             <x-responsive-nav-link :href="route('absence')">
                 <div class="flex items-center gap-4 px-4">
-                    <img src="{{ asset('svg/absence.svg') }}" alt="Absence Icon">
+                    <x-hugeicons-profile-02 :class="($class ?? '') . ' w-8 h-8 '"/>
                     <div class="font-medium text-gray-800 text-lg my-2">Absensi</div>
                 </div>
             </x-responsive-nav-link>
