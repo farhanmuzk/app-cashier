@@ -9,16 +9,16 @@
                     <button @click="open = !open"
                         class="p-2 rounded-md hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 transition duration-150 ease-in-out">
                         <template x-if="!open">
-                            <x-solar-hamburger-menu-outline class="h-6 w-6" />
+                            <img src="{{ asset('svg/hamburger.svg') }}" alt="Hamburger Icon">
                         </template>
                         <template x-if="open">
-                            <x-letsicon-close-round class="h-6 w-6" />
+                            <img src="{{ asset('svg/hamburger.svg') }}" alt="Absence Icon">
                         </template>
                     </button>
                 @else
                     <!-- Child Route UI -->
                     <div class="flex items-center gap-4 cursor-pointer w-full" onclick="window.history.back();">
-                        <x-eva-arrow-ios-back-outline :class="($class ?? '') . ' w-8 h-8 font-semibold '" />
+                        <img src="{{ asset('svg/chevron-left.svg') }}" alt="Chevron Icon">
                         <h3 class="text-lg font-semibold">{{ $pageTitle }}</h3> <!-- Tampilkan teks dinamis -->
                     </div>
                 @endif
@@ -45,27 +45,27 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
             <x-responsive-nav-link :href="route('dashboard')">
                 <div class="flex items-center gap-4 px-4">
-                    <x-letsicon-paper :class="($class ?? '') . ' w-8 h-8 '" />
+                    <img src="{{ asset('svg/cashier.svg') }}" alt="Cashier Icon">
                     <div class="font-medium text-gray-800 text-lg my-2">Kasir</div>
                 </div>
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('sale')">
                 <div class="flex items-center gap-4 px-4">
-                    <x-elemplus-document :class="($class ?? '') . ' w-8 h-8 '" />
+                    <img src="{{ asset('svg/selling.svg') }}" alt="Selling Icon">
                     <div class="font-medium text-gray-800 text-lg my-2">Penjualan</div>
                 </div>
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('report')">
                 <div class="flex items-center gap-4 px-4">
-                    <x-fluentui-document-edit-16-o :class="($class ?? '') . ' w-8 h-8 '" />
+                    <img src="{{ asset('svg/report.svg') }}" alt="Report Icon">
                     <div class="font-medium text-gray-800 text-lg my-2">Laporan</div>
                 </div>
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('absence')">
                 <div class="flex items-center gap-4 px-4">
-                    <x-hugeicons-profile-02 :class="($class ?? '') . ' w-8 h-8 '"/>
+                    <img src="{{ asset('svg/absence.svg') }}" alt="Absence Icon">
                     <div class="font-medium text-gray-800 text-lg my-2">Absensi</div>
                 </div>
             </x-responsive-nav-link>
