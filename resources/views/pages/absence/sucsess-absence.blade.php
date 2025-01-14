@@ -5,7 +5,7 @@
                 <h3 class="text-2xl font-semibold text-tertiary">Absen Masuk</h3>
                 <h3 class="text-2xl font-semibold text-primary">Berhasil</h3>
             </div>
-            <x-solar-check-circle-bold :class="($class ?? '') . ' w-24 h-24 text-primary'"/>
+            <img src="{{ asset('svg/checklist.svg') }}" alt="Checklist Icon" class="w-20">
             <div>
                 <div class="flex flex-col justify-center items-center flex-grow gap-4">
                     <p class="text-gray-600">Anda berhasil masuk pukul</p>

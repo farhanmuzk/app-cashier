@@ -2,7 +2,7 @@
     <div class="p-4 border border-tertiary h-full">
         <p id="current-time" class="text-xl font-medium text-gray-600"></p>
         <div class="flex flex-col gap-4 justify-center items-center h-full">
-            <x-fluentui-document-split-hint-off-16-o  :class="($class ?? '') . ' w-44 h-44 '"/>
+            <img src="{{ asset('svg/paper.svg') }}" alt="Hamburger Icon">
             <h1 class="text-2xl font-semibold">Belum ada laporan</h1>
         </div>
     </div>

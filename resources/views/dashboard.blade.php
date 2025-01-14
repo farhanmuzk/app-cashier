@@ -71,7 +71,7 @@
                         <div class="flex items-center gap-4">
                             <span class="text-lg font-semibold text-gray-600">Rp. ${itemPrice.toLocaleString()}</span>
                             <button class="p-2 bg-red-500 text-white rounded-md hover:bg-red-600 delete-item">
-                                <x-monoicon-delete :class="($class ?? '') . ' w-4 h-4 '"/>
+                                
                             </button>
                         </div>
                     `;
