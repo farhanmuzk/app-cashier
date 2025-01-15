@@ -11,9 +11,34 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route Parent
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $menuItems = [
+            [
+                'name' => 'Espresso with Milk',
+                'price' => 20000,
+                'category' => 'Minuman',
+            ],
+            [
+                'name' => 'Lychee Tea',
+                'price' => 5000,
+                'category' => 'Minuman',
+            ],
+            [
+                'name' => 'Cheese Sandwich',
+                'price' => 25000,
+                'category' => 'Makanan',
+            ],
+            [
+                'name' => 'Chocolate Cake',
+                'price' => 30000,
+                'category' => 'Dessert',
+            ],
+        ];
+    
+        return view('dashboard', [
+            'menuItems' => $menuItems,
+        ]);
     })->name('dashboard');
-
+    
     Route::get('/out-cashier', function () {
         return view('pages.report.out-cashier');
     })->name('out-cashier');
@@ -30,9 +55,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('pages.report.report');
     })->name('report');
 
-    // Route Child
     Route::get('/payment', function () {
-        return view('payment');
+        $orders = session('orders', []);
+        // print orders
+        // dd($orders);
+        
+        $totalPrice = collect($orders)->sum('price');
+    
+        return view('payment', [
+            'orders' => $orders,
+            'totalPrice' => $totalPrice,
+        ]);
     })->name('pages.payment');
 
     Route::get('/success-absence', function () {
@@ -58,6 +91,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/recap', function () {
         return view('pages.report.recap');
     })->name('recap');
+
+    Route::post('/save-order', function (Request $request) {
+        //  Decode JSON values from selected orders
+        $orders = collect($request->input('orders', []))->map(function ($order) {
+            return json_decode($order, true);
+        });
+
+        // Calculate total price
+        $total = $orders->sum('price');
+
+        // Save to session
+        session(['orders' => $orders, 'total' => $total]);
+
+        // Redirect to payment page
+        return redirect()->route('pages.payment');
+    })->name('save-order');
 });
 
 
