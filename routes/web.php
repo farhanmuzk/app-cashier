@@ -13,32 +13,32 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         $menuItems = [
             [
-                'name' => 'Espresso with Milk',
-                'price' => 20000,
+                'name' => 'Blackcurrant',
+                'price' => 8000,
                 'category' => 'Minuman',
             ],
             [
-                'name' => 'Lychee Tea',
-                'price' => 5000,
+                'name' => 'Milk tea',
+                'price' => 6000,
                 'category' => 'Minuman',
             ],
             [
-                'name' => 'Cheese Sandwich',
-                'price' => 25000,
-                'category' => 'Makanan',
+                'name' => 'Yakult tea',
+                'price' => 10000,
+                'category' => 'Minuman',
             ],
             [
-                'name' => 'Chocolate Cake',
-                'price' => 30000,
-                'category' => 'Dessert',
+                'name' => 'Lemon tea',
+                'price' => 8000,
+                'category' => 'Minuman',
             ],
         ];
-    
+
         return view('dashboard', [
             'menuItems' => $menuItems,
         ]);
     })->name('dashboard');
-    
+
     Route::get('/out-cashier', function () {
         return view('pages.report.out-cashier');
     })->name('out-cashier');
@@ -59,9 +59,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         $orders = session('orders', []);
         // print orders
         // dd($orders);
-        
+
         $totalPrice = collect($orders)->sum('price');
-    
+
         return view('payment', [
             'orders' => $orders,
             'totalPrice' => $totalPrice,
