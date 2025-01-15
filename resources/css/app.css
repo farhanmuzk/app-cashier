@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active {
+    background-color: #4CAF50; /* Ganti dengan warna aktif yang diinginkan */
+    color: white;
+}
+.bg-active {
+    background-color: #4CAF50; /* Change this color to the active color you prefer */
+    color: white; /* Change text color if needed */
+}

@@ -8,10 +8,13 @@
         <!-- Button Section -->
         <div class="w-[50%] mt-auto space-y-2">
             <div class="flex gap-4">
-                <button id="exact-cash" class="w-full text-lg bg-tertiary py-2 text-secondary rounded-md">Uang Pas</button>
-                <button id="custom-amount" class="w-full text-lg bg-tertiary py-2 text-secondary rounded-md">Rp. 5.000</button>
+                <button id="exact-cash" class="w-full text-lg bg-tertiary py-2 text-secondary rounded-md">Uang
+                    Pas</button>
+                <button id="custom-amount" class="w-full text-lg bg-tertiary py-2 text-secondary rounded-md">Rp.
+                    5.000</button>
             </div>
-            <button class="w-full text-lg bg-tertiary py-2 text-secondary rounded-md" onclick="resetLocalStorage()">Selesai</button>
+            <button class="w-full text-lg bg-tertiary py-2 text-secondary rounded-md"
+                onclick="resetLocalStorage()">Selesai</button>
         </div>
     </div>
 
@@ -19,6 +22,17 @@
         document.addEventListener("DOMContentLoaded", () => {
             const transactionSummary = document.getElementById("transaction-summary");
             const customAmountButton = document.getElementById("custom-amount");
+            const exactCashButton = document.getElementById("exact-cash");
+
+            // Ambil data metode pembayaran terakhir dari localStorage
+            const lastPaymentMethod = localStorage.getItem('lastPaymentMethod');
+
+            // Periksa apakah ada data metode pembayaran terakhir
+            if (lastPaymentMethod) {
+                // Ubah teks tombol sesuai dengan pilihan terakhir
+                exactCashButton.innerHTML = lastPaymentMethod;
+            }
+
 
             // Fetch details from localStorage
             const totalPrice = localStorage.getItem('totalPrice') || 0;
