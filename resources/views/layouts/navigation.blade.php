@@ -39,7 +39,7 @@
         <div class="p-4">
             {{ __('Es Teh Anak Bangsa') }}
             <a href="{{ url('/dashboard') }}" class="font-medium text-base text-gray-800 mt-2 block">
-                {{ Auth::user()->name }}
+                {{ __('Muhammad Raihan Yanuar') }}
             </a>
         </div>
 
