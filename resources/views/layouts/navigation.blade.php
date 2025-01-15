@@ -35,10 +35,12 @@
 
     <!-- Responsive Navigation Menu -->
     <div x-show="open"
-        class="absolute top-16 left-0  border-2 border-gray-300 rounded-md shadow-md inset-x-0 p-2 transition transform origin-top-right w-[280px] bg-gray-100 h-min-screen ">
-        <div class="p-4 flex flex-col">
+        class="absolute top-0 left-0 border-2 border-gray-300 rounded-md shadow-md inset-x-0 p-2 transition transform origin-top-left w-[280px] bg-gray-100 min-h-screen flex flex-col">
+        <div class="p-4">
             {{ __('Es Teh Anak Bangsa') }}
-            <a href="{{ url('/dashboard') }}" class="font-medium text-base text-gray-800 mt-2">{{ Auth::user()->name }}</a>
+            <a href="{{ url('/dashboard') }}" class="font-medium text-base text-gray-800 mt-2 block">
+                {{ Auth::user()->name }}
+            </a>
         </div>
 
         <!-- Responsive Settings Options -->
